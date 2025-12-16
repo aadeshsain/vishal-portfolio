@@ -68,12 +68,12 @@ const Education = () => {
                   <GraduationCap className="w-6 h-6 text-blue-400" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold text-white">Formal Education</h3>
-                  <p className="text-gray-400">Academic Foundation</p>
+                  <h3 className="text-2xl font-semibold text-white">Academic Foundation</h3>
+                  {/* <p className="text-gray-400">Academic Foundation</p> */}
                 </div>
               </div>
 
-              <div className="space-y-6">
+              {/* <div className="space-y-6">
                 <div className="p-4 bg-gray-700/30 rounded-lg">
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-lg font-medium text-white">12th Grade</h4>
@@ -99,7 +99,7 @@ const Education = () => {
                     Strong foundation in core subjects with emphasis on analytical thinking
                   </p>
                 </div>
-              </div>
+              </div> */}
 
               {/* Certifications */}
               <div className="mt-8">

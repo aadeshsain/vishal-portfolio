@@ -17,35 +17,35 @@ const Projects = () => {
     {
       id: 2,
       name: 'Dlm.cash',
-      techStack: ['JavaScript', 'CoinGecko API', 'Chart.js', 'CSS3'],
+      techStack: ['Laravel', 'Bootstrap', 'PHP', 'MySQL', 'CSS3'],
       description: 'Real-time cryptocurrency price dashboard with interactive charts and market data. Integrated with CoinGecko API for live price updates and trend analysis.',
       liveUrl: 'https://dlm.cash',
       codeUrl: '#',
       icon: <TrendingUp className="w-6 h-6" />,
       color: 'from-purple-400 to-pink-500'
     },
-    {
-      id: 3,
-      name: 'E-Commerce Platform',
-      techStack: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      description: 'Full-stack e-commerce solution with user authentication, payment processing, and admin dashboard. Features include cart management and order tracking.',
-      liveUrl: '#',
-      codeUrl: '#',
-      icon: <Code className="w-6 h-6" />,
-      color: 'from-orange-400 to-red-500',
-      comingSoon: true
-    },
-    {
-      id: 4,
-      name: 'Design Portfolio',
-      techStack: ['Figma', 'Adobe XD', 'Photoshop', 'Illustrator'],
-      description: 'Collection of UI/UX design projects including mobile apps, web interfaces, and branding materials. Showcases design thinking and user-centered approach.',
-      liveUrl: '#',
-      codeUrl: '#',
-      icon: <Palette className="w-6 h-6" />,
-      color: 'from-teal-400 to-cyan-500',
-      comingSoon: true
-    }
+    // {
+    //   id: 3,
+    //   name: 'E-Commerce Platform',
+    //   techStack: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+    //   description: 'Full-stack e-commerce solution with user authentication, payment processing, and admin dashboard. Features include cart management and order tracking.',
+    //   liveUrl: '#',
+    //   codeUrl: '#',
+    //   icon: <Code className="w-6 h-6" />,
+    //   color: 'from-orange-400 to-red-500',
+    //   comingSoon: true
+    // },
+    // {
+    //   id: 4,
+    //   name: 'Design Portfolio',
+    //   techStack: ['Figma', 'Adobe XD', 'Photoshop', 'Illustrator'],
+    //   description: 'Collection of UI/UX design projects including mobile apps, web interfaces, and branding materials. Showcases design thinking and user-centered approach.',
+    //   liveUrl: '#',
+    //   codeUrl: '#',
+    //   icon: <Palette className="w-6 h-6" />,
+    //   color: 'from-teal-400 to-cyan-500',
+    //   comingSoon: true
+    // }
   ];
 
   return (

@@ -4,10 +4,14 @@ import { Download, Eye, ArrowDown } from 'lucide-react';
 
 const Hero = () => {
   const handleDownloadResume = () => {
-    // For now, just log - you can replace with actual PDF download
-    console.log('Resume download requested');
-    alert('Resume download functionality - add your PDF link here!');
-  };
+  const link = document.createElement('a');
+  link.href = '/v sain.pdf';
+  link.download = 'v sain.pdf';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 
   const handleViewProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -61,7 +65,7 @@ const Hero = () => {
               Web Developer
             </h2>
             <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              "Crafting responsive websites with Tailwind, Laravel & Love for UI/UX"
+              “Building secure and scalable web applications with PHP, Laravel & a passion for clean UI/UX”
             </p>
           </motion.div>
 

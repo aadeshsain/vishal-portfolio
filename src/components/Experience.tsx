@@ -27,7 +27,7 @@ const Experience = () => {
   ];
 
   const achievements = [
-    'Successfully delivered 15+ client projects',
+    // 'Successfully delivered 15+ client projects',
     'Improved website load times by 40% through optimization',
     'Developed reusable component library',
     'Mentored 2 junior developers'

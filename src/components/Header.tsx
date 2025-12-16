@@ -82,13 +82,18 @@ const Header = () => {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.6 }}
             onClick={() => {
-              console.log('Resume download requested');
-              alert('Resume download functionality - add your PDF link here!');
+              const link = document.createElement('a');
+              link.href = '/v sain.pdf';
+              link.download = 'v sain.pdf';
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
             }}
             className="hidden md:block px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105"
           >
             Download CV
           </motion.button>
+
 
           {/* Mobile Menu Button */}
           <button
@@ -123,13 +128,13 @@ const Header = () => {
               <button
                 onClick={() => {
                   console.log('Resume download requested');
-                  alert('Resume download functionality - add your PDF link here!');
-                  setIsMenuOpen(false);
-                }}
-                className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300"
-              >
-                Download CV
-              </button>
+                    alert('Resume download functionality - add your PDF link here!');
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300"
+                >
+                  Download CV
+                </button>
             </div>
           </nav>
         </motion.div>

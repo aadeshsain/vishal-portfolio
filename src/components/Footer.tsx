@@ -7,19 +7,19 @@ const Footer = () => {
     {
       name: 'GitHub',
       icon: <Github className="w-5 h-5" />,
-      url: 'https://github.com/vishal-sain',
+      url: 'https://github.com/vishu660',
       color: 'hover:text-gray-300'
     },
     {
       name: 'LinkedIn',
       icon: <Linkedin className="w-5 h-5" />,
-      url: 'https://linkedin.com/in/vishal-sain',
+      url: 'https://www.linkedin.com/in/vishal-ittechxpert-aaa305369/',
       color: 'hover:text-blue-400'
     },
     {
       name: 'Email',
       icon: <Mail className="w-5 h-5" />,
-      url: 'mailto:vishalitechxpert@gmail.com',
+      url: 'mailto:vishalittechxpert@gmail.com',
       color: 'hover:text-red-400'
     }
   ];
@@ -109,7 +109,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-white">Get in Touch</h4>
             <div className="space-y-2 text-sm">
               <p className="text-gray-400">
-                <span className="text-gray-300">Email:</span> vishalitechxpert@gmail.com
+                <span className="text-gray-300">Email:</span> vishalittechxpert@gmail.com
               </p>
               <p className="text-gray-400">
                 <span className="text-gray-300">Phone:</span> +91 8852929028

@@ -4,15 +4,14 @@ import { Code, Palette, Globe, Users } from 'lucide-react';
 
 const About = () => {
   const skills = [
-    'Tailwind CSS',
+    'Html',
+    'CSS',
     'Laravel',
     'PHP',
     'Bootstrap',
     'Figma',
     'Git',
     'WordPress',
-    'JavaScript',
-    'React',
     'MySQL'
   ];
 
@@ -58,8 +57,7 @@ const About = () => {
             About Me
           </h2>
           <p className="text-gray-400 text-lg max-w-3xl mx-auto">
-            A highly motivated and self-taught Web Developer with strong frontend skills and hands-on experience in Tailwind, Bootstrap, Laravel, and design tools like Figma & Canva. Passionate about creating responsive and aesthetic UI/UX experiences.
-          </p>
+A highly motivated and self-taught Web Developer with strong backend expertise and hands-on experience in PHP and Laravel, along with Tailwind and Bootstrap. Passionate about building secure, scalable, and high-performance web applications with clean UI/UX.          </p>
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
