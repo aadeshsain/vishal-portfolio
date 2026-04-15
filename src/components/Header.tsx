@@ -7,12 +7,11 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Education', href: '#education' },
-    { name: 'Contact', href: '#contact' }
+    { name: 'Home', id: 'home' },
+    { name: 'About', id: 'about' },
+    { name: 'Projects', id: 'projects' },
+    { name: 'Experience', id: 'experience' },
+    { name: 'Contact', id: 'contact' }
   ];
 
   useEffect(() => {
@@ -24,122 +23,112 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setIsMenuOpen(false);
   };
 
+  const handleDownload = () => {
+    const link = document.createElement('a');
+    link.href = '/v-sain.pdf'; // rename file without space
+    link.download = 'Vishal-Sain-Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
-    <motion.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-gray-900/95 backdrop-blur-md border-b border-gray-700/50' 
-          : 'bg-transparent'
+    <header
+      className={`fixed w-full z-50 transition ${
+        isScrolled ? 'bg-gray-900/95 backdrop-blur border-b border-gray-700' : ''
       }`}
     >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-2 cursor-pointer"
-            onClick={() => scrollToSection('home')}
-          >
-            <div className="p-2 bg-blue-600 rounded-lg">
-              <Code className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-              Vishal Sain
-            </span>
-          </motion.div>
+      <div className="container mx-auto px-6 flex justify-between items-center h-16">
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            {navItems.map((item, index) => (
-              <motion.button
-                key={index}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                onClick={() => scrollToSection(item.href.substring(1))}
-                className="text-gray-300 hover:text-blue-400 transition-colors duration-300 font-medium relative group"
-              >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 transition-all duration-300 group-hover:w-full" />
-              </motion.button>
-            ))}
-          </nav>
-
-          {/* CTA Button */}
-          <motion.button
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            onClick={() => {
-              const link = document.createElement('a');
-              link.href = '/v sain.pdf';
-              link.download = 'v sain.pdf';
-              document.body.appendChild(link);
-              link.click();
-              document.body.removeChild(link);
-            }}
-            className="hidden md:block px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300 hover:scale-105"
-          >
-            Download CV
-          </motion.button>
-
-
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 text-gray-300 hover:text-white transition-colors"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+        {/* Logo */}
+        <div
+          onClick={() => scrollToSection('home')}
+          className="flex items-center gap-2 cursor-pointer"
+        >
+          <Code className="text-blue-400" />
+          <span className="text-white font-bold text-lg">
+            Vishal Sain
+          </span>
         </div>
 
-        {/* Mobile Navigation */}
-        <motion.div
-          initial={false}
-          animate={{
-            height: isMenuOpen ? 'auto' : 0,
-            opacity: isMenuOpen ? 1 : 0
-          }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden overflow-hidden bg-gray-800/95 backdrop-blur-md rounded-lg mt-2"
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-6">
+
+          {navItems.map((item, i) => (
+            <button
+              key={i}
+              onClick={() => scrollToSection(item.id)}
+              className="text-gray-300 hover:text-blue-400"
+            >
+              {item.name}
+            </button>
+          ))}
+
+          {/* Resume */}
+          <button
+            onClick={handleDownload}
+            className="px-4 py-2 border border-blue-500 text-blue-400 rounded hover:bg-blue-500 hover:text-white"
+          >
+            Resume
+          </button>
+
+          {/* 🔥 MAIN CTA */}
+          <a
+            href="https://wa.me/918852929028"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2 bg-green-600 hover:bg-green-700 text-white rounded font-semibold"
+          >
+            Hire Me
+          </a>
+
+        </div>
+
+        {/* Mobile Button */}
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="md:hidden text-white"
         >
-          <nav className="py-4 space-y-2">
-            {navItems.map((item, index) => (
-              <button
-                key={index}
-                onClick={() => scrollToSection(item.href.substring(1))}
-                className="block w-full text-left px-4 py-2 text-gray-300 hover:text-blue-400 hover:bg-gray-700/50 transition-all duration-300"
-              >
-                {item.name}
-              </button>
-            ))}
-            <div className="px-4 pt-2">
-              <button
-                onClick={() => {
-                  console.log('Resume download requested');
-                    alert('Resume download functionality - add your PDF link here!');
-                    setIsMenuOpen(false);
-                  }}
-                  className="w-full px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-all duration-300"
-                >
-                  Download CV
-                </button>
-            </div>
-          </nav>
-        </motion.div>
+          {isMenuOpen ? <X /> : <Menu />}
+        </button>
       </div>
-    </motion.header>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-gray-800 px-6 py-4 space-y-3">
+
+          {navItems.map((item, i) => (
+            <button
+              key={i}
+              onClick={() => scrollToSection(item.id)}
+              className="block w-full text-left text-gray-300"
+            >
+              {item.name}
+            </button>
+          ))}
+
+          <button
+            onClick={handleDownload}
+            className="w-full bg-blue-600 text-white py-2 rounded"
+          >
+            Download Resume
+          </button>
+
+          <a
+            href="https://wa.me/918852929028"
+            className="block text-center bg-green-600 text-white py-2 rounded"
+          >
+            💬 Hire Me on WhatsApp
+          </a>
+
+        </div>
+      )}
+    </header>
   );
 };
 
